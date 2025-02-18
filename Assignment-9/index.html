@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Appointment Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="container">
+        <h1>Welcome to Our Appointment Booking System</h1>
+        <p>Select a service and book an appointment easily.</p>
+
+        <div class="services">
+            <button class="book-btn" data-service="Doctor">Book Doctor Consultation</button>
+            <button class="book-btn" data-service="Salon">Book Salon Appointment</button>
+            <button class="book-btn" data-service="Car Service">Book Car Service</button>
+        </div>
+    </div>
+
+    <div id="form-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form id="appointment-form">
+                <label>Full Name:</label>
+                <input type="text" id="name" required>
+                <small class="error"></small>
+
+                <label>Email:</label>
+                <input type="email" id="email" required>
+                <small class="error"></small>
+
+                <label>Phone Number:</label>
+                <input type="text" id="phone" maxlength="10" required>
+                <small class="error"></small>
+
+                <label>Select Service:</label>
+                <select id="service">
+                    <option value="Doctor">Doctor Consultation</option>
+                    <option value="Salon">Salon</option>
+                    <option value="Car Service">Car Service</option>
+                </select>
+
+                <label>Preferred Date & Time:</label>
+                <input type="datetime-local" id="datetime" required>
+                <small class="error"></small>
+
+                <label>Special Requests:</label>
+                <textarea id="requests"></textarea>
+
+                <label>
+                    <input type="checkbox" id="terms"> I agree to the terms and conditions
+                </label>
+                <small class="error"></small>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="appointment-list">
+        <h2>Booked Appointments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Service</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="appointments"></tbody>
+        </table>
+    </div>
+
+    <div id="confirmation-popup" class="popup">
+        <div class="popup-content">
+            <p id="confirmation-message"></p>
+            <button id="close-popup">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
